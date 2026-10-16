@@ -49,6 +49,7 @@ python scripts/phase1_build_dem.py            # ≈ 30 s
 python scripts/phase2_topo_hydro.py           # ≈ 4 min à 30 m, ≈ 5,8 Go de RAM au pic (8 Go conseillés)
 python scripts/phase2_validation_figures.py
 python scripts/nommer_cours_eau.py           # noms des cours d'eau depuis la carte fournie
+python scripts/corriger_noms.py               # corrections documentées (parametres/corrections_noms.json)
 python scripts/phase3_ls.py                   # facteur LS RUSLE (≈ 45 s)
 python scripts/phase3_figures.py
 python -m pytest -q tests                     # 23 tests

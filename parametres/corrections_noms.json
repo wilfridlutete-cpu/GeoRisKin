@@ -1,0 +1,12 @@
+{
+  "_description": "Corrections manuelles des noms de cours d'eau et de bassins, avec leur justification. Appliquées par scripts/corriger_noms.py après scripts/nommer_cours_eau.py.",
+  "corrections": [
+    {
+      "nom": "Nsele",
+      "bassin": "BV0002",
+      "tronc_depuis_exutoire": true,
+      "source": "Carte des communes de Kinshasa (W. Lutete, 2023) : la rivière N'sele forme la limite N'sele/Maluku ; 74 % du tronc principal de BV0002 est à moins de 500 m de cette limite",
+      "date": "2026-10-16"
+    }
+  ]
+}
