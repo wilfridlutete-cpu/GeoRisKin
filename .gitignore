@@ -1,0 +1,13 @@
+# Données : jamais dans le dépôt (volumineuses et/ou soumises à autorisation) — voir DONNEES.md
+data/
+outputs/
+# Python / Django
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/staticfiles/
+.env
+*.sqlite3
+# Divers
+.DS_Store
+*.log

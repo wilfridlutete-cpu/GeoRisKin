@@ -1,0 +1,35 @@
+{
+  "_description": "Facteur P (pratiques de conservation) pour les scénarios. P = 1 − réduction relative de la perte de sol mesurée sur parcelles (approximation : la réduction mesurée inclut parfois aussi des effets de couverture). 'central' = 1 − réduction médiane des études citées, sauf mention contraire. À remplacer par des mesures locales dès que possible.",
+  "pratiques": {
+    "haies_vives": {
+      "nom": "Haies vives en courbes de niveau (cultures en couloirs)",
+      "bas": 0.06, "central": 0.5, "haut": 0.65,
+      "statut": "bibliographie (Inde), non mesuré à Kinshasa",
+      "sources": ["Saha et al. 2012 : −94 % de perte de sol (haies, NE de l'Inde)",
+                  "Adhikary et al. 2016 : −49 à −52 % (haies en courbes de niveau, Odisha)",
+                  "Lenka et al. 2012 : −35 % (haie de Gliricidia + bande enherbée)",
+                  "synthèse : chapitre IntechOpen « Agroforestry Strategies for Integrated Soil and Water Conservation »"]
+    },
+    "bandes_enherbees": {
+      "nom": "Bandes enherbées / barrières végétales (ex. vétiver)",
+      "bas": 0.65, "central": 0.75, "haut": 0.84,
+      "statut": "bibliographie (Inde), peu d'études",
+      "sources": ["Ramajayam et al. 2007 : −16 % (barrières de Cenchrus / Cymbopogon)",
+                  "Lenka et al. 2012 : −35 % (haie + bande enherbée)"]
+    },
+    "terrasses_courbes": {
+      "nom": "Terrasses / cultures en courbes de niveau (selon la pente)",
+      "par_pente": [[5, 0.10], [10, 0.12], [20, 0.14], [30, 0.19], [50, 0.25], [100, 0.33]],
+      "incertitude_relative": 0.3,
+      "statut": "table d'usage courant (Wischmeier & Smith 1978 ; Hurni 1985), reprise d'études éthiopiennes",
+      "sources": ["Table P des terres cultivées par classe de pente (%), Environmental Systems Research 2019, tableau 5, citant Wischmeier & Smith 1978 et Hurni 1985"]
+    },
+    "fascines": {
+      "nom": "Fascines (fagots de branchages en travers de la pente)",
+      "bas": 0.5, "central": 0.7, "haut": 0.9,
+      "statut": "HYPOTHÈSE À REMPLACER : aucune valeur de P publiée trouvée",
+      "sources": ["Richet, Ouvry & Saunier 2017 (Ecological Engineering) : efficacité élevée de piégeage des agrégats grossiers, sans valeur de P ; efficaces juste en aval des sources d'érosion et en travers des écoulements concentrés",
+                  "Ouvrages à entretenir ; efficacité dépendante de la construction"]
+    }
+  }
+}

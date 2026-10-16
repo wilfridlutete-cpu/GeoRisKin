@@ -1,0 +1,82 @@
+{
+  "_description": "Table PROPOSÉE du facteur C (RUSLE, sans dimension) par classe ESA WorldCover 2021. À valider. Valeur centrale = moyenne géométrique des bornes (règle uniforme, pas une mesure).",
+  "_sources": {
+    "Roose1977": "Roose E. (1977), tableau 29 'Facteur couvert végétal et techniques culturales (C), Afrique occidentale', repris dans FAO, Bulletin pédologique 70, https://www.fao.org/4/T1765F/t1765f0m.htm",
+    "Panagos2015": "Panagos P. et al. (2015) Estimating the soil erosion cover-management factor at the European scale, Land Use Policy 48:38-50 (bornes des classes non arables ; bornes hautes confirmées par une reprise, bornes basses à revérifier dans l'article)",
+    "Wischmeier1978": "Wischmeier & Smith (1978) : C = 1 pour la parcelle de référence en jachère nue labourée"
+  },
+  "classes": {
+    "10": {
+      "nom": "arbres",
+      "bas": 0.0001,
+      "haut": 0.003,
+      "sources": [
+        "Roose1977: forêt, fourré dense 0,001",
+        "Panagos2015: forêts 0,0001-0,003"
+      ]
+    },
+    "20": {
+      "nom": "arbustes",
+      "bas": 0.003,
+      "haut": 0.05,
+      "sources": [
+        "Panagos2015: transitional woodland-shrub 0,003-0,05"
+      ]
+    },
+    "30": {
+      "nom": "herbacees",
+      "bas": 0.01,
+      "haut": 0.1,
+      "sources": [
+        "Roose1977: savane en bon état 0,01 ; savane brûlée ou surpâturée 0,1",
+        "Panagos2015: prairies naturelles 0,01-0,08"
+      ]
+    },
+    "40": {
+      "nom": "cultures",
+      "bas": 0.2,
+      "haut": 0.9,
+      "sources": [
+        "APPROXIMATION : aucune valeur C publiée trouvée pour le maraîchage (Kinshasa ni Afrique) ; fourchette des cultures annuelles de Roose1977 (manioc 1re année 0,2-0,8 ; maïs 0,4-0,9) utilisée faute de mieux. À remplacer par une mesure ou une valeur locale."
+      ],
+      "interpretation_kinshasa": "Maraîchage dominant (choix utilisateur du 16/10/2026)"
+    },
+    "50": {
+      "nom": "bati",
+      "bas": null,
+      "haut": null,
+      "regle": "hors_domaine",
+      "sources": [
+        "RUSLE non conçu pour les surfaces imperméables ; exclu aussi par Borrelli et al. 2017 (classe urbaine IGBP)"
+      ]
+    },
+    "60": {
+      "nom": "sol_nu",
+      "bas": 0.45,
+      "haut": 1.0,
+      "sources": [
+        "Wischmeier1978: sol nu = 1",
+        "Panagos2015: végétation clairsemée jusqu'à 0,45 (la classe WorldCover 60 inclut la végétation clairsemée)"
+      ]
+    },
+    "80": {
+      "nom": "eau",
+      "bas": null,
+      "haut": null,
+      "regle": "hors_domaine",
+      "sources": []
+    },
+    "90": {
+      "nom": "zones_humides",
+      "bas": 0.001,
+      "haut": 0.01,
+      "sources": [
+        "HYPOTHÈSE : couvert dense permanent, assimilé à Roose1977 forêt/fourré (0,001) - savane en bon état (0,01)"
+      ]
+    }
+  },
+  "regle_cellule": "C = somme(fraction_i * C_i) / somme(fraction_i) sur les classes du domaine RUSLE ; cellule NaN (hors domaine) si bâti + eau > 50 % de la cellule",
+  "seuil_hors_domaine": 0.5,
+  "statut": "Validée par l'utilisateur le 16/10/2026 (table + règle bâti A+C), valeurs restant des approximations bibliographiques",
+  "regle_bati": "A + C : bâti hors domaine RUSLE (NaN) ; ruissellement des surfaces bâties traité par l'indicateur séparé IPRU (scripts/indicateur_ruissellement_urbain.py)"
+}

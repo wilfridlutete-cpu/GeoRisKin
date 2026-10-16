@@ -1,0 +1,61 @@
+{% load static %}<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GeoRisKin – érosion des sols à Kinshasa</title>
+<link rel="stylesheet" href="{% static 'carte/vendor/maplibre-gl.css' %}">
+<link rel="stylesheet" href="{% static 'carte/carte.css' %}">
+</head>
+<body>
+<header>
+  <div class="titre"><strong>GeoRisKin</strong> <span>Topographie, bassins versants et érosion des sols – Kinshasa</span></div>
+  <div class="avertissement">Prototype de recherche : les pertes de sol sont des <b>estimations non validées</b> (RUSLE, facteurs empiriques).
+    Elles ne représentent ni les ravines ni un risque de catastrophe.</div>
+</header>
+<main>
+  <aside id="panneau">
+    <section>
+      <h2>Couche thématique</h2>
+      <div id="liste-couches"></div>
+      <label class="ligne">Opacité <input type="range" id="opacite" min="0" max="1" step="0.05" value="0.8"></label>
+    </section>
+    <section id="legende"></section>
+    <section>
+      <h2>Contours et réseau</h2>
+      <label class="ligne"><input type="checkbox" data-vec="communes" checked> Communes</label>
+      <label class="ligne"><input type="checkbox" data-vec="bassins"> Bassins versants</label>
+      <label class="ligne"><input type="checkbox" data-vec="sous_bassins"> Sous-bassins</label>
+      <label class="ligne"><input type="checkbox" data-vec="reseau" checked> Réseau hydrographique (ordre ≥ 3)</label>
+      <label class="ligne"><input type="checkbox" data-vec="ravines" checked> Ravines (inventaire indicatif)</label>
+    </section>
+    <section>
+      <h2>Affichage</h2>
+      <label class="ligne"><input type="checkbox" id="ombrage" checked> Ombrage du relief</label>
+      <label class="ligne"><input type="checkbox" id="fond" checked> Fond OpenStreetMap</label>
+      <label class="ligne"><input type="checkbox" id="relief3d"> Relief 3D (exagéré ×3)</label>
+    </section>
+    <section id="scenario">
+      <h2>Scénario d'aménagement</h2>{% csrf_token %}
+      <p class="aide">Zone : <b id="sc-zone">aucune</b><br>Cliquez sur un bassin, un sous-bassin ou une commune, puis « Utiliser comme zone » dans Informations.</p>
+      <label class="ligne">Pluie <select id="sc-pluie">
+        <option value="1991-2020">1991–2020 (référence)</option><option value="2011-2025">2011–2025 (récente)</option><option value="1991-2025">1991–2025</option></select></label>
+      <div class="bloc"><label class="ligne"><b>Reboisement</b> <input type="range" id="sc-reb" min="0" max="100" step="5" value="0"> <span id="sc-reb-v">0 %</span></label>
+        <div class="classes" data-pour="reb"><label><input type="checkbox" value="30" checked>herbacées</label><label><input type="checkbox" value="60" checked>sol nu</label><label><input type="checkbox" value="40">cultures</label><label><input type="checkbox" value="20">arbustes</label></div></div>
+      <div class="bloc"><label class="ligne"><b>Urbanisation</b> <input type="range" id="sc-urb" min="0" max="100" step="5" value="0"> <span id="sc-urb-v">0 %</span></label>
+        <div class="classes" data-pour="urb"><label><input type="checkbox" value="30" checked>herbacées</label><label><input type="checkbox" value="20" checked>arbustes</label><label><input type="checkbox" value="40" checked>cultures</label><label><input type="checkbox" value="10">arbres</label></div></div>
+      <div class="bloc"><label class="ligne"><b>Pratique</b> <select id="sc-pratique"><option value="">aucune</option></select></label>
+        <label class="ligne">appliquée à <select id="sc-cible"><option value="cultures">la part cultivée</option><option value="tout">toute la surface</option></select></label>
+        <label class="ligne">pente minimale <input type="number" id="sc-pente" min="0" max="45" value="0" style="width:60px"> °</label>
+        <div id="sc-pratique-info" class="source"></div></div>
+      <button id="sc-lancer" disabled>Calculer le scénario</button>
+      <div id="sc-resultat"></div>
+    </section>
+    <section id="infos"><h2>Informations</h2><p class="aide">Cliquez sur la carte pour lire les valeurs du point, de la commune et du bassin versant.</p></section>
+  </aside>
+  <div id="carte"></div>
+</main>
+<script src="{% static 'carte/vendor/maplibre-gl.js' %}"></script>
+<script src="{% static 'carte/carte.js' %}"></script>
+</body>
+</html>

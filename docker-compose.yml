@@ -1,0 +1,24 @@
+# Développement local : PostGIS + API. Non testé ici (pas de démon Docker disponible).
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: georiskin
+      POSTGRES_USER: georiskin
+      POSTGRES_PASSWORD: georiskin
+    volumes: [pgdata:/var/lib/postgresql/data]
+    ports: ["5432:5432"]
+  web:
+    build: .
+    env_file: backend/.env.example
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: georiskin
+      DJANGO_DEBUG: "1"
+      GEORISKIN_DATA_DIR: /app/data
+    volumes: ["./data:/app/data", "./outputs:/app/outputs"]
+    ports: ["8000:8000"]
+    depends_on: [db]
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+volumes:
+  pgdata:

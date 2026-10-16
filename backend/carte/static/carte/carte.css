@@ -1,0 +1,33 @@
+:root { --bg:#f7f6f2; --ink:#1f2328; --muted:#5b6370; --line:#d9d6cc; --accent:#8a3b12; --warn:#fff4d6; }
+* { box-sizing: border-box; }
+html, body { margin:0; height:100%; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+header { padding:8px 14px; border-bottom:1px solid var(--line); background:#fff; }
+header .titre strong { font-size:18px; color:var(--accent); } header .titre span { color:var(--muted); margin-left:6px; }
+.avertissement { margin-top:4px; padding:4px 8px; background:var(--warn); border-left:3px solid #d49b00; font-size:12.5px; }
+main { display:flex; height:calc(100% - 74px); }
+aside { width:340px; overflow-y:auto; padding:6px 12px 20px; border-right:1px solid var(--line); background:#fff; }
+#carte { flex:1; }
+h2 { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:14px 0 6px; }
+.ligne { display:flex; gap:6px; align-items:center; margin:3px 0; cursor:pointer; }
+.groupe { font-weight:600; margin:8px 0 2px; font-size:13px; }
+.statut { display:inline-block; font-size:11px; padding:1px 6px; border-radius:8px; background:#eee; color:#333; }
+.statut.estim { background:#ffe2cc; color:#7a2e00; }
+.barre { height:12px; border-radius:2px; margin:4px 0 2px; }
+.graduations { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); }
+.classe { display:flex; gap:6px; align-items:center; font-size:12px; margin:2px 0; }
+.classe i { width:14px; height:12px; display:inline-block; border:1px solid #0002; }
+.source { font-size:11.5px; color:var(--muted); margin-top:4px; }
+table { width:100%; border-collapse:collapse; font-size:12.5px; }
+td { padding:2px 4px; border-bottom:1px solid #eee; vertical-align:top; } td:last-child { text-align:right; white-space:nowrap; }
+.aide { color:var(--muted); font-size:12.5px; }
+.alerte { color:#9a3412; font-size:12px; }
+@media (max-width: 760px) { main { flex-direction:column-reverse; } aside { width:100%; height:45%; } #carte { min-height:55%; } }
+.etiquette { font-size:11.5px; font-weight:600; color:#111; text-shadow:0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; pointer-events:none; white-space:nowrap; }
+.bloc { border-top:1px dashed var(--line); padding-top:4px; margin-top:6px; }
+.classes { display:flex; flex-wrap:wrap; gap:4px 10px; font-size:12px; margin:2px 0 4px 4px; }
+.classes label { display:flex; gap:3px; align-items:center; }
+button { margin-top:8px; padding:6px 12px; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:4px; cursor:pointer; font-weight:600; }
+button:disabled { background:#ccc; border-color:#ccc; cursor:not-allowed; }
+button.secondaire { background:#fff; color:var(--accent); padding:3px 8px; font-weight:500; }
+.resultat-cle { font-size:15px; margin:6px 0; }
+.baisse { color:#1a7f37; } .hausse { color:#b42318; }
