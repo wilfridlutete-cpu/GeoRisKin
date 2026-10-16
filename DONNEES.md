@@ -17,13 +17,18 @@ soit volumineuses (rasters, tuiles), soit soumises à l'accord de leurs auteurs.
 
 Scripts d'aide : `scripts/telecharger_donnees_rkc.py`, `scripts/utilisateur/chirps_kinshasa.py`.
 
-## Données non publiées (accord des auteurs requis)
+## Données URF-GRN publiées dans ce dépôt (CC BY 4.0)
 
-- Limites des communes et quartiers de Kinshasa, inventaire des ravines (`Fils_CartoRavin`, `erosions.shp`),
-  cartes et mémoires : transmis par le professeur Fils (Makanzu Imwangana) et ses étudiants. Ils ne sont pas
-  publiés tant que leurs auteurs n'ont pas donné leur accord et indiqué une licence.
-- Alternative ouverte prévue pour les limites administratives : jeux COD-AB de la RDC sur HDX (OCHA).
-- L'inventaire des ravines se charge dans l'application avec `python manage.py import_ravines`.
+- `donnees/urf-grn/` : inventaire indicatif des ravines (Kisenso, Lemba), producteur **URF-GRN**, licence
+  CC BY 4.0 (accord du professeur Fils Makanzu Imwangana, 16/10/2026). Voir `donnees/urf-grn/README.md`.
+- Chargement dans l'application : `python manage.py import_ravines donnees/urf-grn/ravines_kinshasa_inventaire_indicatif.gpkg ...`
+
+## Données non publiées (origine à vérifier)
+
+- Limites des quartiers et des communes : les fichiers transmis portent la source **CENI** (Commission électorale
+  nationale indépendante) ; leur licence n'est pas connue. Ils restent hors du dépôt tant que les conditions de
+  réutilisation de la CENI ne sont pas établies. Alternative ouverte : jeux COD-AB de la RDC sur HDX (OCHA).
+- Carte des cours d'eau utilisée pour nommer le réseau, mémoires et cartes scannées : non publiés.
 
 ## Produits dérivés
 

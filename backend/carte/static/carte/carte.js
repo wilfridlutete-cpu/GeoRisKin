@@ -36,7 +36,7 @@ map.on("load", async () => {
   catalogue = cat.couches;
   for (const c of catalogue) {
     const src = { type: "raster", tiles: [c.tuiles], tileSize: 256, minzoom: 8, maxzoom: 13 };
-    if (c.id === "ombrage") src.attribution = "MNT SRTM (NASA/NGA, OSFAC), Copernicus GLO-30 · ESA WorldCover · SoilGrids (ISRIC) · CHIRPS (UCSB)";
+    if (c.id === "ombrage") src.attribution = "MNT SRTM (NASA/NGA, OSFAC), Copernicus GLO-30 · ESA WorldCover · SoilGrids (ISRIC) · CHIRPS (UCSB) · Ravines : URF-GRN (CC BY 4.0)";
     map.addSource(`r-${c.id}`, src);
     map.addLayer({ id: `r-${c.id}`, type: "raster", source: `r-${c.id}`,
       layout: { visibility: c.id === "ombrage" ? "visible" : "none" },
