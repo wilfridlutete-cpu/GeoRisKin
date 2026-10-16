@@ -6,6 +6,10 @@ professeur Fils Makanzu Imwangana le 16/10/2026).
 Citation : *URF-GRN (2026). Inventaire indicatif des ravines de Kinshasa (Kisenso, Lemba). Licence CC BY 4.0.
 Diffusé dans le dépôt GeoRisKin.*
 
+## Autorisation
+Déclaration transmise le 16/10/2026 : « Wilfrid Lutete est mon assistant de recherche, il a mon accord d'utiliser
+mes documents. » — Prof. Fils Makanzu Imwangana. Licence de publication retenue pour les données URF-GRN : CC BY 4.0.
+
 ## Contenu
 
 | Fichier | Format | SCR |
