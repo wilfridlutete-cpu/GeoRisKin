@@ -23,12 +23,15 @@ Scripts d'aide : `scripts/telecharger_donnees_rkc.py`, `scripts/utilisateur/chir
   CC BY 4.0 (accord du professeur Fils Makanzu Imwangana, 16/10/2026). Voir `donnees/urf-grn/README.md`.
 - Chargement dans l'application : `python manage.py import_ravines donnees/urf-grn/ravines_kinshasa_inventaire_indicatif.gpkg ...`
 
-## Données non publiées (origine à vérifier)
+## Limites administratives publiées (source CENI)
 
-- Limites des quartiers et des communes : les fichiers transmis portent la source **CENI** (Commission électorale
-  nationale indépendante) ; leur licence n'est pas connue. Ils restent hors du dépôt tant que les conditions de
-  réutilisation de la CENI ne sont pas établies. Alternative ouverte : jeux COD-AB de la RDC sur HDX (OCHA).
-- Carte des cours d'eau utilisée pour nommer le réseau, mémoires et cartes scannées : non publiés.
+- `donnees/limites-administratives/` : province, 24 communes, 367 quartiers (géométries CENI, transmises par
+  l'URF-GRN, republication décidée par le Prof. Fils Makanzu le 16/10/2026). Noms des chefs de quartier et
+  données électorales retirés. Voir `donnees/limites-administratives/README.md` pour les conditions.
+
+## Données non publiées
+
+- Carte des cours d'eau utilisée pour nommer le réseau, mémoires et cartes scannées.
 
 ## Produits dérivés
 
